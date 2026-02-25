@@ -1,0 +1,26 @@
+{
+    "name": "genie",
+    "version": "1.0.0",
+    "description": "AI-driven conversational bot with memory and adaptive responses.",
+    "homepage": "https://github.com/arpitkumar4806/Genie#readme",
+    "bugs": {
+        "url": "https://github.com/arpitkumar4806/Genie/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/arpitkumar4806/Genie.git"
+    },
+    "license": "MIT",
+    "author": "Arpit Kumar",
+    "type": "module",
+    "private": true,
+    "workspaces": [
+        "apps/*"
+    ],
+    "scripts": {
+        "dev": "npm run dev -w web & npm run dev -w api",
+        "dev:web": "npm run dev -w web",
+        "dev:api": "npm run dev -w api",
+        "build": "npm run build -w web && npm run build -w api"
+    }
+}
