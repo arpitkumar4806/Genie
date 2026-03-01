@@ -11,9 +11,14 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
+    "axios": "^1.13.5",
+    "hamburger-react": "^2.5.2",
+    "highlight.js": "^11.11.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router": "^7.13.1",
+    "react-top-loading-bar": "^3.0.2",
+    "tailwind-scrollbar-hide": "^4.0.0",
     "tailwindcss": "^4.2.1",
     "zustand": "^5.0.11"
   },

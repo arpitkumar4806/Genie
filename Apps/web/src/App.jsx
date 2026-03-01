@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect } from "react";
+import { Outlet } from "react-router";
+import LoadingBar from "react-top-loading-bar";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import { useAppStore } from "./store/useAppStore";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const { loading, theme, setLoading } = useAppStore();
+  useEffect(() => {
+    if (theme == "light") {
+      document.documentElement.classList.remove("dark");
+    } else {
+      document.documentElement.classList.add("dark");
+    }
+  }, [theme]);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <LoadingBar
+        progress={loading}
+        onLoaderFinished={() => setLoading(0)}
+        color={theme === "light" ? "#272727" : "#f5f5f5"}
+      />
+      <Header />
+      <main className="flex">
+        <Sidebar />
+        <Outlet />
+      </main>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
